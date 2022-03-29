@@ -23,7 +23,11 @@ class DefaultPessoaService (
     }
 
     override fun deletarPorId(id: UUID) {
-        TODO("Not yet implemented")
+        if(pessoaRepository.existePorId(id)){
+            throw IllegalStateException("A pessoa que voce quer remover nao existe")
+        }
+
+        deletarPorId(id)
     }
 
 }
